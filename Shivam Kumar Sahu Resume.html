@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shivam Kumar Sahu — Associate Technical Support Engineer Application</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --salesforce-blue: #00A1E0;
+            --salesforce-dark: #032D60;
+            --salesforce-light: #E8F4FD;
+            --accent-orange: #FF6B35;
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a4a4a;
+            --bg-white: #ffffff;
+            --bg-light: #f8fafc;
+            --border: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-light);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .particles {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .particle {
+            position: absolute;
+            width: 6px; height: 6px;
+            background: var(--salesforce-blue);
+            border-radius: 50%;
+            opacity: 0.15;
+            animation: float 15s infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0.15; }
+            25% { transform: translateY(-30px) translateX(20px); opacity: 0.3; }
+            50% { transform: translateY(-60px) translateX(-20px); opacity: 0.15; }
+            75% { transform: translateY(-30px) translateX(40px); opacity: 0.25; }
+        }
+        .hero {
+            background: linear-gradient(135deg, var(--salesforce-dark) 0%, #0a4a8a 50%, var(--salesforce-blue) 100%);
+            color: white;
+            padding: 80px 20px 100px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%; right: -20%;
+            width: 600px; height: 600px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 50%;
+            animation: pulse 4s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.03; }
+            50% { transform: scale(1.1); opacity: 0.06; }
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255,255,255,0.2);
+            animation: fadeInDown 0.8s ease;
+        }
+        .hero-badge i { color: #FFD700; }
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            animation: fadeInUp 0.8s ease 0.2s both;
+            letter-spacing: -0.02em;
+        }
+        .hero .subtitle {
+            font-size: 1.4rem;
+            font-weight: 300;
+            opacity: 0.95;
+            margin-bottom: 8px;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+        .hero .target-role {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #FFD700;
+            margin-bottom: 32px;
+            animation: fadeInUp 0.8s ease 0.5s both;
+        }
+        .hero-contact {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+        .hero-contact a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.1);
+        }
+        .hero-contact a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        .why-salesforce {
+            background: var(--bg-white);
+            padding: 60px 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--salesforce-dark);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+        .section-header h2 i { color: var(--salesforce-blue); }
+        .section-header p {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .passion-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .passion-card {
+            background: var(--bg-light);
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .passion-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 4px;
+            background: linear-gradient(90deg, var(--salesforce-blue), var(--accent-orange));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        .passion-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--salesforce-blue);
+        }
+        .passion-card:hover::before { transform: scaleX(1); }
+        .passion-card .icon {
+            width: 56px; height: 56px;
+            background: linear-gradient(135deg, var(--salesforce-blue), var(--salesforce-dark));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+        }
+        .passion-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: var(--salesforce-dark);
+        }
+        .passion-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        .skills-section {
+            background: linear-gradient(180deg, var(--bg-light) 0%, var(--bg-white) 100%);
+            padding: 60px 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+        .skill-category {
+            background: var(--bg-white);
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+        .skill-category h3 {
+            font-size: 1.1rem;
+            color: var(--salesforce-dark);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .skill-category h3 i {
+            color: var(--salesforce-blue);
+            width: 24px;
+        }
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .skill-tag {
+            background: var(--salesforce-light);
+            color: var(--salesforce-dark);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid rgba(0, 161, 224, 0.2);
+            transition: all 0.3s ease;
+        }
+        .skill-tag:hover {
+            background: var(--salesforce-blue);
+            color: white;
+            transform: scale(1.05);
+        }
+        .skill-tag.highlight {
+            background: linear-gradient(135deg, var(--salesforce-blue), var(--salesforce-dark));
+            color: white;
+            font-weight: 600;
+        }
+        .timeline-section {
+            background: var(--bg-white);
+            padding: 60px 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--salesforce-blue), var(--salesforce-dark));
+            border-radius: 3px;
+        }
+        .timeline-item {
+            position: relative;
+            padding: 24px 0;
+            width: 50%;
+        }
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 40px;
+            text-align: right;
+        }
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 40px;
+        }
+        .timeline-dot {
+            position: absolute;
+            width: 20px; height: 20px;
+            background: var(--salesforce-blue);
+            border: 4px solid var(--bg-white);
+            border-radius: 50%;
+            top: 32px;
+            box-shadow: 0 0 0 4px rgba(0, 161, 224, 0.2);
+        }
+        .timeline-item:nth-child(odd) .timeline-dot { right: -10px; }
+        .timeline-item:nth-child(even) .timeline-dot { left: -10px; }
+        .timeline-content {
+            background: var(--bg-light);
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+        .timeline-content:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+            border-color: var(--salesforce-blue);
+        }
+        .timeline-content .date {
+            color: var(--salesforce-blue);
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+        }
+        .timeline-content h3 {
+            color: var(--salesforce-dark);
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+        .timeline-content .org {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+        .timeline-content ul {
+            list-style: none;
+            padding: 0;
+        }
+        .timeline-content ul li {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 6px;
+            position: relative;
+            padding-left: 16px;
+        }
+        .timeline-content ul li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--salesforce-blue);
+            font-weight: bold;
+        }
+        .projects-section {
+            background: linear-gradient(180deg, var(--bg-white) 0%, var(--bg-light) 100%);
+            padding: 60px 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 28px;
+        }
+        .project-card {
+            background: var(--bg-white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+        .project-header { padding: 24px 24px 0; }
+        .project-header .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--salesforce-blue), var(--salesforce-dark));
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .project-header h3 {
+            color: var(--salesforce-dark);
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+        }
+        .project-body {
+            padding: 0 24px 24px;
+            flex-grow: 1;
+        }
+        .project-body ul {
+            list-style: none;
+            padding: 0;
+        }
+        .project-body ul li {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            padding-left: 18px;
+            position: relative;
+            line-height: 1.6;
+        }
+        .project-body ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--salesforce-blue);
+            font-weight: bold;
+        }
+        .project-footer {
+            padding: 16px 24px;
+            background: var(--bg-light);
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .tech-tag {
+            background: white;
+            color: var(--salesforce-dark);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid var(--border);
+        }
+        .certs-section {
+            background: linear-gradient(135deg, var(--salesforce-dark), #0a4a8a);
+            padding: 50px 20px;
+            position: relative;
+            z-index: 1;
+            color: white;
+            text-align: center;
+        }
+        .certs-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 32px;
+        }
+        .certs-section h2 i {
+            color: #FFD700;
+            margin-right: 10px;
+        }
+        .certs-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .cert-badge {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+        }
+        .cert-badge:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-4px);
+        }
+        .cert-badge i { color: #FFD700; font-size: 1.3rem; }
+        .cert-badge span { font-weight: 500; font-size: 0.95rem; }
+        .cta-section {
+            background: var(--bg-white);
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .cta-box {
+            max-width: 700px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, var(--salesforce-light), white);
+            border: 2px solid var(--salesforce-blue);
+            border-radius: 24px;
+            padding: 48px 32px;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(0,161,224,0.05) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .cta-box h2 {
+            color: var(--salesforce-dark);
+            font-size: 2rem;
+            margin-bottom: 16px;
+            position: relative;
+        }
+        .cta-box p {
+            color: var(--text-secondary);
+            margin-bottom: 28px;
+            position: relative;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+        }
+        .btn {
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--salesforce-blue), var(--salesforce-dark));
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 161, 224, 0.4);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 161, 224, 0.5);
+        }
+        .btn-secondary {
+            background: white;
+            color: var(--salesforce-dark);
+            border: 2px solid var(--salesforce-blue);
+        }
+        .btn-secondary:hover {
+            background: var(--salesforce-light);
+            transform: translateY(-3px);
+        }
+        footer {
+            background: var(--salesforce-dark);
+            color: white;
+            text-align: center;
+            padding: 32px 20px;
+            position: relative;
+            z-index: 1;
+        }
+        footer p { opacity: 0.8; font-size: 0.9rem; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero .subtitle { font-size: 1.1rem; }
+            .timeline::before { left: 20px; }
+            .timeline-item { width: 100%; left: 0 !important; padding-left: 50px !important; padding-right: 0 !important; text-align: left !important; }
+            .timeline-dot { left: 10px !important; right: auto !important; }
+            .section-header h2 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    <section class="hero">
+        <div class="hero-badge">
+            <i class="fas fa-star"></i>
+            Passionate About Salesforce & Customer Success
+        </div>
+        <h1>Shivam Kumar Sahu</h1>
+        <p class="subtitle">Computer Science Engineer | Salesforce Developer | Technical Support Enthusiast</p>
+        <p class="target-role">🎯 Applying for: Associate Technical Support Engineer at Salesforce</p>
+        <div class="hero-contact">
+            <a href="mailto:shivamkumarsahujbp2@gmail.com"><i class="fas fa-envelope"></i> shivamkumarsahujbp2@gmail.com</a>
+            <a href="tel:+919754800559"><i class="fas fa-phone"></i> +91 97548 00559</a>
+            <a href="#" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="#" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+        </div>
+    </section>
+    <section class="why-salesforce">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2><i class="fas fa-heart"></i> Why I Want to Join Salesforce</h2>
+                <p>My journey with Salesforce has been intentional, driven, and deeply aligned with the company's mission of customer success.</p>
+            </div>
+            <div class="passion-cards">
+                <div class="passion-card fade-in">
+                    <div class="icon"><i class="fas fa-cloud"></i></div>
+                    <h3>Deep Salesforce Expertise</h3>
+                    <p>I have invested significant time earning Salesforce AI Specialist & AI Associate certifications, and building real-world projects using Apex, LWC, Flow Builder, and Named Credentials. I don't just use Salesforce — I understand its architecture deeply.</p>
+                </div>
+                <div class="passion-card fade-in">
+                    <div class="icon"><i class="fas fa-headset"></i></div>
+                    <h3>Customer-First Mindset</h3>
+                    <p>From coordinating youth medical camps to managing enterprise support tickets, I have consistently placed the customer at the center. I believe technical support is not just about fixing bugs — it's about empowering people.</p>
+                </div>
+                <div class="passion-card fade-in">
+                    <div class="icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3>AI-Driven Problem Solving</h3>
+                    <p>I actively use Claude, GitHub Copilot, and other AI tools to debug, review, and re-engineer code. I am excited by Salesforce's AI innovations like Einstein and Agentforce, and I want to help customers harness this power.</p>
+                </div>
+                <div class="passion-card fade-in">
+                    <div class="icon"><i class="fas fa-rocket"></i></div>
+                    <h3>Growth & Impact</h3>
+                    <p>Salesforce's culture of "Ohana" and continuous learning resonates with me. I want to grow within a company that values innovation, trust, and giving back to the community — values I have lived through my volunteer work.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="skills-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2><i class="fas fa-tools"></i> Skills Aligned for This Role</h2>
+                <p>Technical capabilities directly relevant to Associate Technical Support Engineer responsibilities</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category fade-in">
+                    <h3><i class="fab fa-salesforce"></i> Salesforce Core</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag highlight">Apex</span>
+                        <span class="skill-tag highlight">Lightning Web Components</span>
+                        <span class="skill-tag highlight">Flow Builder</span>
+                        <span class="skill-tag highlight">Named Credentials</span>
+                        <span class="skill-tag">External Services</span>
+                        <span class="skill-tag">Queueable Apex</span>
+                        <span class="skill-tag">Custom Metadata</span>
+                        <span class="skill-tag">Screen Flows</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-bug"></i> Support & Testing</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag highlight">Root Cause Analysis</span>
+                        <span class="skill-tag highlight">Bug Reporting</span>
+                        <span class="skill-tag highlight">Defect Tracking</span>
+                        <span class="skill-tag">Functional Test Planning</span>
+                        <span class="skill-tag">Test Case Design</span>
+                        <span class="skill-tag">SLA Management</span>
+                        <span class="skill-tag">Ticket Lifecycle</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-code"></i> Development & APIs</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">REST APIs</span>
+                        <span class="skill-tag">C# / ASP.NET Core</span>
+                        <span class="skill-tag">Java / Spring Boot</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">React.js</span>
+                        <span class="skill-tag">MySQL / SQL Server</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">Postman</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-brain"></i> AI & Cloud</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Claude / Copilot</span>
+                        <span class="skill-tag">LLM Code Review</span>
+                        <span class="skill-tag">GCP</span>
+                        <span class="skill-tag">Azure Basics</span>
+                        <span class="skill-tag">DevOps</span>
+                        <span class="skill-tag">PySpark</span>
+                        <span class="skill-tag">SAP ERP</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="timeline-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2><i class="fas fa-briefcase"></i> Experience & Education</h2>
+                <p>My professional journey building technical and interpersonal skills</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="date">June 2026</div>
+                        <h3>IT Department Intern</h3>
+                        <div class="org">Ordnance Factory Khamaria (Munitions India Limited)</div>
+                        <ul>
+                            <li>Gained exposure to enterprise IT infrastructure & SAP ERP modules</li>
+                            <li>Learned database management, security practices, and system administration</li>
+                            <li>Developed professional communication and problem-solving skills</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="date">Nov 2021 – 2025</div>
+                        <h3>B.Tech in Computer Science Engineering</h3>
+                        <div class="org">Baderia Global Institute of Engineering & Management, Jabalpur</div>
+                        <ul>
+                            <li>Specialization in Software Engineering & Cloud Computing</li>
+                            <li>Academic Project: "Traffic Controller System" using Java & MySQL</li>
+                            <li>Shortlisted for Internal Smart India Hackathon — 2023</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="date">Jan 2026 – Jan 2027</div>
+                        <h3>Sri Sathya Sai Leadership Through Self Transformation</h3>
+                        <div class="org">Sri Sathya Sai Seva Organisations, India & SSSIHL</div>
+                        <ul>
+                            <li>Developed leadership, empathy, and communication skills</li>
+                            <li>Values-driven approach to teamwork and service</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="date">Jan 2025 – Present</div>
+                        <h3>Samithi Youth Coordinator</h3>
+                        <div class="org">Sri Sathya Sai Seva Samithi, Jabalpur</div>
+                        <ul>
+                            <li>Coordinated youth participation in medical camps & community service</li>
+                            <li>Delivered talks in colleges — clear communication to diverse audiences</li>
+                            <li>Managed multiple content projects as Graphics Designer & Video Editor</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="projects-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2><i class="fas fa-project-diagram"></i> Projects That Prove My Fit</h2>
+                <p>Hands-on work demonstrating the exact skills needed for this role</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <span class="badge">SALESFORCE</span>
+                        <h3>Multi-Currency Order Processing</h3>
+                    </div>
+                    <div class="project-body">
+                        <ul>
+                            <li>Implemented Apex callouts, JSON parsing, and custom metadata for multi-currency support</li>
+                            <li>Used Queueable Apex and LWC currency formatting for scalable configuration</li>
+                            <li>Integrated Named Credentials and External Services for secure API connections</li>
+                        </ul>
+                    </div>
+                    <div class="project-footer">
+                        <span class="tech-tag">Apex</span>
+                        <span class="tech-tag">LWC</span>
+                        <span class="tech-tag">Named Credentials</span>
+                    </div>
+                </div>
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <span class="badge">SALESFORCE</span>
+                        <h3>Event Registration System</h3>
+                    </div>
+                    <div class="project-body">
+                        <ul>
+                            <li>Automated end-to-end registration using Screen Flows and custom email alerts</li>
+                            <li>Built Apex HTTP callouts for backend integrations</li>
+                            <li>Validated integrations using Postman — catching defects before release</li>
+                        </ul>
+                    </div>
+                    <div class="project-footer">
+                        <span class="tech-tag">Screen Flows</span>
+                        <span class="tech-tag">Apex</span>
+                        <span class="tech-tag">Postman</span>
+                    </div>
+                </div>
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <span class="badge">FULL-STACK</span>
+                        <h3>Enterprise Support Ticket System</h3>
+                    </div>
+                    <div class="project-body">
+                        <ul>
+                            <li>Built full-stack system with JWT auth and role-based access (Customer, Engineer, Admin)</li>
+                            <li>Implemented SLA tracking, priority-based assignment, and analytics dashboards</li>
+                            <li>Optimized DB queries and structured logging — mirroring real support workflows</li>
+                        </ul>
+                    </div>
+                    <div class="project-footer">
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">Spring Boot</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">MySQL</span>
+                    </div>
+                </div>
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <span class="badge">CLOUD</span>
+                        <h3>Cloud Document Collaboration Tool</h3>
+                    </div>
+                    <div class="project-body">
+                        <ul>
+                            <li>Developed real-time collaborative editor with version control</li>
+                            <li>Implemented user roles and permissions using Node.js and MongoDB</li>
+                            <li>Used WebSocket for live collaboration features</li>
+                        </ul>
+                    </div>
+                    <div class="project-footer">
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">WebSocket</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="certs-section">
+        <div class="container">
+            <h2><i class="fas fa-certificate"></i> Certifications</h2>
+            <div class="certs-grid">
+                <div class="cert-badge"><i class="fas fa-award"></i><span>Salesforce AI Specialist</span></div>
+                <div class="cert-badge"><i class="fas fa-award"></i><span>Salesforce AI Associate</span></div>
+                <div class="cert-badge"><i class="fas fa-shield-alt"></i><span>Cisco Cybersecurity</span></div>
+                <div class="cert-badge"><i class="fab fa-google"></i><span>Cloud Computing (GCP)</span></div>
+                <div class="cert-badge"><i class="fas fa-code-branch"></i><span>DevOps Fundamentals</span></div>
+                <div class="cert-badge"><i class="fas fa-gamepad"></i><span>Google Cloud Arcade</span></div>
+                <div class="cert-badge"><i class="fas fa-user-graduate"></i><span>TCS iON Career Edge</span></div>
+            </div>
+        </div>
+    </section>
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Ready to Join the Salesforce Ohana</h2>
+                <p>I am genuinely excited about the opportunity to bring my Salesforce technical skills, customer-first mindset, and passion for problem-solving to the Associate Technical Support Engineer role. I am eager to learn, contribute, and grow with the team that is redefining customer relationship management worldwide.</p>
+                <div class="cta-buttons">
+                    <a href="mailto:shivamkumarsahujbp2@gmail.com" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Let's Connect</a>
+                    <a href="tel:+919754800559" class="btn btn-secondary"><i class="fas fa-phone"></i> Call Me</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>Shivam Kumar Sahu | Crafted with passion for Salesforce | 2026</p>
+    </footer>
+    <script>
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 30; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 15 + 's';
+            particle.style.animationDuration = (10 + Math.random() * 10) + 's';
+            particlesContainer.appendChild(particle);
+        }
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, observerOptions);
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
